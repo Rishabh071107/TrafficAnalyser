@@ -1,319 +1,77 @@
 /* =========================================================================
-   VELOCE TRAFFIC ANALYSER - BESPOKE SAGE & PORCELAIN CREAM DESIGN SYSTEM
-   Curated Editorial & Architectural Typography:
-   - Primary Titles: 'Playfair Display', 'Cormorant Garamond', Georgia, serif
-   - Structural UI & Headers: 'Plus Jakarta Sans', -apple-system, sans-serif
-   - Data & Telemetry Counters: 'JetBrains Mono', monospace
+   VELOCE TRAFFIC ANALYSER - CLASSIC GRADIO ENHANCEMENTS
    ========================================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-:root {
-  /* Sage Green Palette */
-  --sage-deepest: #182C1E;
-  --sage-primary: #2E5339;
-  --sage-vibrant: #3D6B4A;
-  --sage-medium: #547B61;
-  --sage-soft: #84A98C;
-  --sage-mist: #D5E4D8;
-  --sage-wash: #EDF4EE;
-
-  /* Porcelain Cream & Warm Alabaster Palette */
-  --cream-pure: #FFFFFF;
-  --cream-surface: #FCFAF6;
-  --cream-base: #F7F4EC;
-  --cream-subtle: #EFE9DC;
-  --cream-border: #DCD4C4;
-  --cream-border-subtle: #E8E2D4;
-  --cream-sand: #D9CEBA;
-
-  /* Text & Contrast */
-  --text-charcoal: #152219;
-  --text-muted: #526356;
-  --text-light: #7E8F82;
-
-  /* Accent Tones */
-  --accent-gold: #C08D38;
-  --accent-terracotta: #B95332;
-  --accent-emerald: #2E7D4E;
-
-  /* Typography */
-  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
-}
-
-/* Base Body & Container Styling */
-body, .gradio-container {
-  background-color: var(--cream-base) !important;
-  background-image: 
-    radial-gradient(var(--sage-mist) 0.6px, transparent 0.6px), 
-    radial-gradient(var(--cream-border) 0.6px, var(--cream-base) 0.6px) !important;
-  background-size: 26px 26px !important;
-  background-position: 0 0, 13px 13px !important;
-  font-family: var(--font-sans) !important;
-  color: var(--text-charcoal) !important;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Main Brand Header Banner */
-.veloce-header {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FBF8F1 60%, #F5EFE3 100%);
-  border: 1px solid var(--cream-border);
-  border-left: 6px solid var(--sage-primary);
-  border-radius: 18px;
-  padding: 32px 40px;
-  margin-bottom: 24px;
-  box-shadow: 0 14px 34px -10px rgba(30, 48, 35, 0.07);
-  position: relative;
-  overflow: hidden;
-}
-
-.veloce-header::after {
-  content: "OBSERVATORY · CV-TRACK-SPEED";
-  position: absolute;
-  right: 28px;
-  top: 24px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--sage-medium);
-  background: var(--sage-wash);
-  border: 1px solid var(--sage-mist);
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-.veloce-header-title {
-  font-family: var(--font-serif);
-  font-size: 38px;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  color: var(--sage-deepest);
-  margin: 0 0 8px 0;
-  line-height: 1.15;
-}
-
-.veloce-header-subtitle {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: 0.02em;
-  margin: 0;
-  max-width: 780px;
-  line-height: 1.5;
-}
-
-/* Card Sections */
-.veloce-card-title {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--sage-deepest);
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.veloce-card-tag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--sage-wash);
-  color: var(--sage-primary);
-  border: 1px solid var(--sage-mist);
-}
-
-/* Buttons */
-.veloce-btn-load {
-  background: linear-gradient(135deg, #345D40 0%, #23422C 100%) !important;
-  color: #FCFAF6 !important;
-  font-family: var(--font-sans) !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.03em !important;
-  border: 1px solid #1E3825 !important;
-  border-radius: 12px !important;
-  padding: 14px 26px !important;
-  box-shadow: 0 8px 20px -4px rgba(46, 83, 57, 0.35) !important;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  cursor: pointer !important;
-}
-
-.veloce-btn-load:hover {
-  background: linear-gradient(135deg, #3D6B4A 0%, #2A4F35 100%) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 12px 24px -4px rgba(46, 83, 57, 0.45) !important;
-}
-
-.veloce-btn-analyze {
-  background: linear-gradient(135deg, #1C3322 0%, #102115 100%) !important;
-  color: #FAF6ED !important;
-  font-family: var(--font-sans) !important;
-  font-size: 17px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em !important;
-  border: 1px solid #0D1C11 !important;
-  border-radius: 12px !important;
-  padding: 16px 32px !important;
-  box-shadow: 0 10px 26px -5px rgba(22, 38, 26, 0.45) !important;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.veloce-btn-analyze:hover {
-  background: linear-gradient(135deg, #284731 0%, #182C1E 100%) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 14px 30px -5px rgba(22, 38, 26, 0.55) !important;
-}
-
-/* Metric Display Cards */
-.metric-tile {
-  background: var(--cream-pure);
-  border: 1px solid var(--cream-border-subtle);
-  border-top: 4px solid var(--sage-primary);
-  border-radius: 14px;
-  padding: 18px 22px;
-  text-align: left;
-  box-shadow: 0 8px 22px -6px rgba(35, 55, 42, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.metric-tile:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(35, 55, 42, 0.1);
-}
-
-.metric-tile-label {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.metric-tile-value {
-  font-family: var(--font-mono);
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--sage-deepest);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.metric-tile-unit {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-muted);
-  margin-left: 5px;
-}
-
-/* Status Badges */
+/* Metric Badges */
 .status-free-flow {
   display: inline-flex;
   align-items: center;
-  background: #EAF5ED;
-  color: #1F6B3B;
-  border: 1px solid #B7DFBF;
-  padding: 5px 14px;
+  background: #E8F5E9;
+  color: #1B5E20;
+  border: 1px solid #A5D6A7;
+  padding: 4px 12px;
   border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .status-moderate {
   display: inline-flex;
   align-items: center;
-  background: #FDF6E7;
-  color: #A36B15;
-  border: 1px solid #F0D49C;
-  padding: 5px 14px;
+  background: #FFF8E1;
+  color: #F57F17;
+  border: 1px solid #FFE082;
+  padding: 4px 12px;
   border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .status-heavy {
   display: inline-flex;
   align-items: center;
-  background: #FDF0EB;
-  color: #B54222;
-  border: 1px solid #EBBBA8;
-  padding: 5px 14px;
+  background: #FFEBEE;
+  color: #B71C1C;
+  border: 1px solid #FFCDD2;
+  padding: 4px 12px;
   border-radius: 999px;
-  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.metric-tile {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.metric-tile-label {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
+  text-transform: uppercase;
   letter-spacing: 0.05em;
+  color: #6B7280;
+  margin-bottom: 4px;
 }
 
-/* Video Containers */
-.video-preview-wrapper {
-  background: #F8F5EE !important;
-  border: 2px dashed var(--cream-border) !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  padding: 8px !important;
+.metric-tile-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.1;
 }
 
-.video-output-wrapper {
-  background: #FFFFFF !important;
-  border: 2px solid var(--sage-primary) !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  padding: 8px !important;
-  box-shadow: 0 12px 36px -10px rgba(46, 83, 57, 0.22) !important;
+.metric-tile-unit {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6B7280;
+  margin-left: 4px;
 }
 
-/* Gradio Controls & Clean Overrides */
-.gradio-container .prose h1, 
-.gradio-container .prose h2, 
-.gradio-container .prose h3 {
-  font-family: var(--font-serif) !important;
-}
-
-label span {
-  font-family: var(--font-sans) !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  color: var(--sage-deepest) !important;
-}
-
-/* Input Fields */
-input, select, textarea {
-  background-color: #FFFFFF !important;
-  border-color: var(--cream-border) !important;
-  color: var(--text-charcoal) !important;
-  font-family: var(--font-sans) !important;
-  border-radius: 10px !important;
-}
-
-input:focus, select:focus {
-  border-color: var(--sage-primary) !important;
-  box-shadow: 0 0 0 2px rgba(46, 83, 57, 0.25) !important;
-}
-
-/* Range Sliders */
-input[type="range"] {
-  accent-color: var(--sage-primary) !important;
-}
-
-/* Accordion */
-.accordion {
-  background: #FFFFFF !important;
-  border: 1px solid var(--cream-border-subtle) !important;
-  border-radius: 14px !important;
+/* Sidebar polish */
+.sidebar {
+  border-right: 1px solid #E5E7EB !important;
 }

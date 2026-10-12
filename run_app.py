@@ -10,8 +10,8 @@ if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
 from deployment.api.flask_app import run_flask_server
-from ui.app import build_app
-from ui.theme import get_sage_cream_theme, load_custom_css
+from ui.app import build_app, find_free_port
+from ui.theme import get_classic_gradio_theme, load_custom_css
 
 
 def wait_for_flask(url="http://127.0.0.1:5000/api/health", timeout=10.0):
@@ -64,13 +64,14 @@ def main():
             print(f"⚠️ Flask initialization timeout; continuing with local fallback bridge.")
 
     if args.mode in ["all", "gradio"]:
-        print(f"[Runner] Initializing Gradio Sage Green & Cream Frontend on http://{args.host}:{args.gradio_port} ...")
+        actual_port = find_free_port(args.gradio_port)
+        print(f"[Runner] Initializing Classic Gradio Frontend on http://{args.host}:{actual_port} ...")
         gradio_app = build_app()
         gradio_app.launch(
             server_name=args.host,
-            server_port=args.gradio_port,
+            server_port=actual_port,
             share=args.share,
-            theme=get_sage_cream_theme(),
+            theme=get_classic_gradio_theme(),
             css=load_custom_css(),
         )
     elif args.mode == "flask":
