@@ -1,0 +1,294 @@
+/* =========================================================================
+   VELOCE TRAFFIC ANALYSER - BESPOKE SAGE GREEN & CREAM DESIGN SYSTEM
+   Bespoke Editorial & Architectural Typography:
+   - Headings: 'Fraunces' (Optical sizing editorial serif)
+   - Accents & Sub-titles: 'Space Grotesk' (Geometric design)
+   - Body & UI: 'Outfit' (Contemporary humanistic sans)
+   - Telemetry & Numbers: 'JetBrains Mono' (Precision monospaced metrics)
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-sage-deep: #2F3E32;
+  --color-sage-primary: #4A6B56;
+  --color-sage-accent: #6E8879;
+  --color-sage-mist: #8FA996;
+  --color-sage-tint: #D6E0D8;
+  --color-sage-wash: #EEF2EE;
+
+  --color-cream-light: #FAF7F0;
+  --color-cream-base: #F4EFE6;
+  --color-cream-card: #FCFBF7;
+  --color-cream-border: #DFD7C7;
+  --color-cream-shadow: rgba(47, 62, 50, 0.08);
+
+  --color-earth-dark: #1E2B21;
+  --color-earth-muted: #57655A;
+  --color-terracotta: #B85D38;
+  --color-amber-gold: #C28B38;
+  --color-emerald-flow: #3B7A57;
+
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-architectural: 'Space Grotesk', -apple-system, sans-serif;
+  --font-ui: 'Outfit', -apple-system, sans-serif;
+  --font-telemetry: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* Background & Body */
+body, .gradio-container {
+  background-color: var(--color-cream-base) !important;
+  background-image: radial-gradient(var(--color-sage-tint) 0.75px, transparent 0.75px), radial-gradient(var(--color-cream-border) 0.75px, var(--color-cream-base) 0.75px) !important;
+  background-size: 30px 30px !important;
+  background-position: 0 0, 15px 15px !important;
+  font-family: var(--font-ui) !important;
+  color: var(--color-earth-dark) !important;
+}
+
+/* App Header Banner */
+.veloce-header {
+  background: linear-gradient(135deg, #FAF7F0 0%, #F1EADF 100%);
+  border: 1px solid var(--color-cream-border);
+  border-left: 6px solid var(--color-sage-primary);
+  border-radius: 16px;
+  padding: 28px 36px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 25px -5px var(--color-cream-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.veloce-header::after {
+  content: "TRAFFIC INTELLIGENCE";
+  position: absolute;
+  right: 24px;
+  bottom: 12px;
+  font-family: var(--font-telemetry);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--color-sage-accent);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.veloce-header-title {
+  font-family: var(--font-editorial);
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-sage-deep);
+  margin: 0 0 6px 0;
+  line-height: 1.15;
+}
+
+.veloce-header-subtitle {
+  font-family: var(--font-architectural);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-earth-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Distinct Card Blocks */
+.veloce-card {
+  background: var(--color-cream-card) !important;
+  border: 1px solid var(--color-cream-border) !important;
+  border-radius: 14px !important;
+  padding: 20px !important;
+  box-shadow: 0 6px 18px -4px var(--color-cream-shadow) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.veloce-card:hover {
+  box-shadow: 0 12px 28px -6px rgba(47, 62, 50, 0.12) !important;
+}
+
+.veloce-card-title {
+  font-family: var(--font-editorial);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-sage-deep);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.veloce-card-tag {
+  font-family: var(--font-telemetry);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--color-sage-wash);
+  color: var(--color-sage-primary);
+  border: 1px solid var(--color-sage-tint);
+}
+
+/* Primary Action Buttons */
+.veloce-btn-load {
+  background: linear-gradient(135deg, #4A6B56 0%, #375341 100%) !important;
+  color: #FAF7F0 !important;
+  font-family: var(--font-architectural) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  border: 1px solid #375341 !important;
+  border-radius: 10px !important;
+  padding: 12px 24px !important;
+  box-shadow: 0 6px 16px -3px rgba(74, 107, 86, 0.35) !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+.veloce-btn-load:hover {
+  background: linear-gradient(135deg, #587D65 0%, #43624E 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 20px -3px rgba(74, 107, 86, 0.45) !important;
+}
+
+.veloce-btn-analyze {
+  background: linear-gradient(135deg, #2F3E32 0%, #1E2B21 100%) !important;
+  color: #FAF7F0 !important;
+  font-family: var(--font-architectural) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  border: 1px solid #1E2B21 !important;
+  border-radius: 10px !important;
+  padding: 14px 28px !important;
+  box-shadow: 0 8px 20px -4px rgba(30, 43, 33, 0.4) !important;
+  transition: all 0.2s ease !important;
+}
+
+.veloce-btn-analyze:hover {
+  background: linear-gradient(135deg, #3D5041 0%, #29382C 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 24px -4px rgba(30, 43, 33, 0.5) !important;
+}
+
+/* Metric Display Badges */
+.metric-tile {
+  background: #FCFBF7;
+  border: 1px solid var(--color-cream-border);
+  border-top: 4px solid var(--color-sage-primary);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: left;
+  box-shadow: 0 4px 12px -2px var(--color-cream-shadow);
+}
+
+.metric-tile-label {
+  font-family: var(--font-architectural);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-earth-muted);
+  margin-bottom: 6px;
+}
+
+.metric-tile-value {
+  font-family: var(--font-telemetry);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-sage-deep);
+  line-height: 1.1;
+}
+
+.metric-tile-unit {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-earth-muted);
+  margin-left: 4px;
+}
+
+/* Status Badges */
+.status-free-flow {
+  display: inline-block;
+  background: #E8F3EB;
+  color: #2D6A4F;
+  border: 1px solid #B7DFBF;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-moderate {
+  display: inline-block;
+  background: #FFF5E6;
+  color: #B57A22;
+  border: 1px solid #F0D59D;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-heavy {
+  display: inline-block;
+  background: #FDF0EC;
+  color: #B85D38;
+  border: 1px solid #ECC6B5;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--font-telemetry);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Video Containers */
+.video-preview-wrapper {
+  background: #F4EFE6 !important;
+  border: 2px dashed var(--color-cream-border) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  padding: 8px !important;
+}
+
+.video-output-wrapper {
+  background: #FCFBF7 !important;
+  border: 2px solid var(--color-sage-primary) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  padding: 8px !important;
+  box-shadow: 0 10px 30px -8px rgba(74, 107, 86, 0.2) !important;
+}
+
+/* Radio buttons / Dataset selector */
+.gradio-radio, .gradio-dropdown {
+  font-family: var(--font-ui) !important;
+}
+
+/* Override Gradio labels & inputs */
+label span {
+  font-family: var(--font-architectural) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  color: var(--color-sage-deep) !important;
+}
+
+input, select, textarea {
+  background-color: #FAF7F0 !important;
+  border-color: var(--color-cream-border) !important;
+  color: var(--color-earth-dark) !important;
+  font-family: var(--font-ui) !important;
+}
+
+input:focus, select:focus {
+  border-color: var(--color-sage-primary) !important;
+  box-shadow: 0 0 0 2px rgba(74, 107, 86, 0.25) !important;
+}
+
+/* Sliders */
+input[type="range"] {
+  accent-color: var(--color-sage-primary) !important;
+}
