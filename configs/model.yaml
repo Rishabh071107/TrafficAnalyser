@@ -1,0 +1,33 @@
+# Traffic Monitoring Model & Analytics Configuration
+
+model:
+  pretrained_weights: "models/pretrained/yolo11n.pt"
+  trained_weights: "models/trained/best.pt"
+  confidence_threshold: 0.25
+  iou_threshold: 0.45
+  img_size: 640
+
+tracker:
+  tracker_type: "bytetrack"
+  track_high_thresh: 0.5
+  track_low_thresh: 0.1
+  new_track_thresh: 0.6
+  track_buffer: 30
+  match_thresh: 0.8
+
+traffic_counter:
+  # Line coordinates as normalized relative positions [x1, y1, x2, y2]
+  counting_line: [0.0, 0.6, 1.0, 0.6]
+  direction: "vertical" # vertical line checks y-crossing, horizontal checks x-crossing
+
+speed_estimation:
+  # Meters per pixel ratio calibration for speed computation
+  pixel_to_meter_scale: 0.05
+  fps: 30
+  smoothing_window: 5
+
+congestion:
+  density_thresholds:
+    free_flow: 5
+    moderate: 15
+    heavy: 30

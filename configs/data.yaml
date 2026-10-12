@@ -1,0 +1,16 @@
+# YOLO Traffic Dataset Configuration
+path: data/processed
+train: images/train
+val: images/val
+test: images/test
+
+# Number of vehicle & traffic classes
+nc: 5
+
+# Class names dictionary
+names:
+  0: car
+  1: motorcycle
+  2: bus
+  3: truck
+  4: bicycle

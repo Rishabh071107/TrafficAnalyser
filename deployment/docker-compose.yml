@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  traffic-api:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: traffic_monitoring_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../models:/app/models
+      - ../outputs:/app/outputs
+      - ../inputs:/app/inputs
+    restart: unless-stopped
