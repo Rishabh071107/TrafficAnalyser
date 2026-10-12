@@ -75,11 +75,20 @@ traffic-monitoring/
 │   ├── exp002_yolo11s/
 │   └── exp003_augmented/
 │
+├── ui/                        # Bespoke Sage & Cream Gradio Interface
+│   ├── app.py                 # Gradio application definition & layout
+│   ├── theme.py               # Custom Sage Green & Cream design system theme
+│   ├── custom.css             # Multi-font typography & editorial card CSS
+│   └── components/            # Dataset selector & telemetry cards
+│
+├── run_app.py                 # Unified Dual-Runner (Flask + Gradio)
+│
 └── deployment/                # Production API & Containerization
     ├── Dockerfile             # Production Docker container definition
     ├── docker-compose.yml     # Multi-container service setup
     └── api/
-        └── app.py             # FastAPI HTTP service
+        ├── app.py             # FastAPI HTTP service
+        └── flask_app.py       # Flask REST service
 ```
 
 ---
@@ -94,9 +103,26 @@ Clone the repository and install dependencies:
 pip install -r requirements.txt
 ```
 
-### 2. Run Inference & Traffic Analysis
+### 2. Launch the Web Observatory UI & Flask Backend (Sage Green & Cream)
 
-Process a video file with object detection, vehicle tracking, line counting, and speed estimation:
+Run the unified interface orchestrator:
+
+```bash
+python run_app.py
+```
+
+- **Gradio Frontend (Bespoke Sage & Cream UI)**: `http://localhost:7860`
+- **Flask REST Backend**: `http://localhost:5000`
+
+> **Interactive Workflow:**
+> 1. Click **"🌿 Load Video Dataset"** to discover streams with generated thumbnails and metadata.
+> 2. Select any video from the dataset choices — the input preview loads and output video is selected/updated.
+> 3. Click **"⚡ Execute Traffic Analysis"** to run vehicle detection, ByteTrack tracking, speed estimation, counting line crossings, and density analysis.
+> 4. View side-by-side input and output video players, live telemetry KPI badges, vehicle distribution breakdown, and export CSV telemetry reports.
+
+### 3. Run Command-Line Inference (Optional)
+
+Process a video file directly via CLI:
 
 ```bash
 python scripts/predict.py --source inputs/videos/traffic.mp4 --weights models/trained/best.pt --show

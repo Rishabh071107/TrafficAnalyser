@@ -49,7 +49,7 @@ class TrafficTracker:
         if len(detections) == 0:
             for track_id in list(self.disappeared.keys()):
                 self.disappeared[track_id] += 1
-                if self.disappeared[track_id] > self.max_disappeared:
+                if self.disappeared[track_id] >= self.max_disappeared:
                     self.deregister(track_id)
             return self.get_active_tracks()
 
@@ -98,7 +98,7 @@ class TrafficTracker:
             for row in unused_rows:
                 track_id = object_ids[row]
                 self.disappeared[track_id] += 1
-                if self.disappeared[track_id] > self.max_disappeared:
+                if self.disappeared[track_id] >= self.max_disappeared:
                     self.deregister(track_id)
 
             for col in unused_cols:
