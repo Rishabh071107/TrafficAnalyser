@@ -186,36 +186,37 @@ def build_app() -> gr.Blocks:
                 )
                 max_frames_slider = gr.Slider(
                     minimum=0,
-                    maximum=500,
-                    value=120,
-                    step=30,
-                    label="Max Frames (0 = Entire Video)",
+                    maximum=1000,
+                    value=0,
+                    step=50,
+                    label="Max Frames (0 = Full Video Duration)",
+                    info="Set to 0 to analyze the entire video duration without truncation.",
                 )
 
         # Section 3: Dual Video Player Displays
         gr.HTML("""
-        <div class="veloce-card-title" style="margin-top: 18px;">
+        <div class="veloce-card-title" style="margin-top: 22px;">
             <span>2. Dual Stream Video Observatory</span>
-            <span class="veloce-card-tag">LIVE OBSERVATORY</span>
+            <span class="veloce-card-tag">DUAL OBSERVATORY</span>
         </div>
         """)
 
         with gr.Row():
             with gr.Column(scale=1):
                 gr.HTML("""
-                <div style="font-family:'Space Grotesk', sans-serif; font-size:13px; font-weight:600; color:#4A6B56; margin-bottom:6px;">
+                <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:13px; font-weight:700; color:#2E5339; margin-bottom:8px; letter-spacing:0.02em;">
                     📹 SOURCE INPUT STREAM PREVIEW
                 </div>
                 """)
                 input_video = gr.Video(
-                    label="Source Video",
+                    label="Source Video Preview",
                     interactive=False,
                     elem_classes=["video-preview-wrapper"],
                 )
 
             with gr.Column(scale=1):
                 gr.HTML("""
-                <div style="font-family:'Space Grotesk', sans-serif; font-size:13px; font-weight:600; color:#2F3E32; margin-bottom:6px;">
+                <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:13px; font-weight:700; color:#182C1E; margin-bottom:8px; letter-spacing:0.02em;">
                     ✨ PROCESSED OUTPUT VIDEO (DETECTIONS & OVERLAYS)
                 </div>
                 """)

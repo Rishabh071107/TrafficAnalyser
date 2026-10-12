@@ -33,22 +33,22 @@ class DatasetManager:
             height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
             fourcc = cv2.VideoWriter_fourcc(*"mp4v")
 
-            # Create clip 1: frames 0 to 120 (~5 seconds)
-            if not os.path.exists(clip1_path):
+            # Create clip 1: frames 0 to 450 (~19 seconds)
+            if not os.path.exists(clip1_path) or cv2.VideoCapture(clip1_path).get(cv2.CAP_PROP_FRAME_COUNT) < 200:
                 out1 = cv2.VideoWriter(clip1_path, fourcc, fps, (width, height))
                 cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-                for _ in range(120):
+                for _ in range(450):
                     ret, frame = cap.read()
                     if not ret:
                         break
                     out1.write(frame)
                 out1.release()
 
-            # Create clip 2: frames 200 to 320 (~5 seconds)
-            if not os.path.exists(clip2_path):
+            # Create clip 2: frames 180 to 630 (~19 seconds)
+            if not os.path.exists(clip2_path) or cv2.VideoCapture(clip2_path).get(cv2.CAP_PROP_FRAME_COUNT) < 200:
                 out2 = cv2.VideoWriter(clip2_path, fourcc, fps, (width, height))
-                cap.set(cv2.CAP_PROP_POS_FRAMES, 200)
-                for _ in range(120):
+                cap.set(cv2.CAP_PROP_POS_FRAMES, 180)
+                for _ in range(450):
                     ret, frame = cap.read()
                     if not ret:
                         break

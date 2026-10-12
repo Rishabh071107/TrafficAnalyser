@@ -10,33 +10,33 @@ os.makedirs(REPORTS_DIR, exist_ok=True)
 
 
 def format_congestion_badge(status: str) -> str:
-    """Format HTML badge with color styles based on congestion state."""
+    """Format HTML badge with glowing indicators based on traffic congestion state."""
     status_lower = status.lower()
     if "free" in status_lower:
         badge_class = "status-free-flow"
-        dot_color = "#2D6A4F"
+        dot_color = "#1F6B3B"
     elif "moderate" in status_lower:
         badge_class = "status-moderate"
-        dot_color = "#B57A22"
+        dot_color = "#A36B15"
     else:
         badge_class = "status-heavy"
-        dot_color = "#B85D38"
+        dot_color = "#B54222"
 
     return f"""
     <span class="{badge_class}">
-        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:{dot_color}; margin-right:6px;"></span>
+        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:{dot_color}; margin-right:6px; box-shadow: 0 0 6px {dot_color}88;"></span>
         {status.upper()}
     </span>
     """
 
 
 def render_analytics_dashboard_html(data: Dict[str, Any]) -> str:
-    """Render high-contrast Sage Green & Cream telemetry dashboard cards."""
+    """Render executive Sage Green & Porcelain Cream telemetry dashboard cards."""
     if not data or data.get("status") != "completed":
         return """
-        <div style="background: #FCFBF7; border: 1px dashed #DFD7C7; border-radius: 12px; padding: 24px; text-align: center; color: #57655A; font-family: 'Space Grotesk', sans-serif;">
-            <div style="font-family: 'Fraunces', serif; font-size: 18px; color: #4A6B56; margin-bottom: 6px;">Telemetry Awaiting Stream Execution</div>
-            <div>Select a video stream above and click <strong>'Execute Traffic Analysis'</strong> to generate telemetry.</div>
+        <div style="background: #FFFFFF; border: 1.5px dashed #DCD4C4; border-radius: 14px; padding: 28px; text-align: center; color: #526356; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 4px 16px -4px rgba(35, 55, 42, 0.04);">
+            <div style="font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #2E5339; margin-bottom: 6px;">Telemetry Awaiting Stream Execution</div>
+            <div style="font-size: 13px;">Select a video feed above and click <strong>'⚡ Execute Traffic Analysis'</strong> to calibrate vehicle tracks and live density.</div>
         </div>
         """
 
@@ -63,31 +63,31 @@ def render_analytics_dashboard_html(data: Dict[str, Any]) -> str:
     class_pills = []
     for cls_name, count in classes.items():
         class_pills.append(
-            f'<div style="background:#FAF7F0; border:1px solid #DFD7C7; padding:4px 10px; border-radius:6px; font-family:\'Space Grotesk\', sans-serif; font-size:12px; color:#2F3E32;">'
-            f'<strong style="font-family:\'JetBrains Mono\', monospace; color:#4A6B56;">{count}</strong> {cls_name.title()}'
+            f'<div style="background:#FAF8F3; border:1px solid #DCD4C4; padding:5px 12px; border-radius:8px; font-family:\'Plus Jakarta Sans\', sans-serif; font-size:12px; color:#182C1E;">'
+            f'<strong style="font-family:\'JetBrains Mono\', monospace; color:#2E5339; font-size:13px;">{count}</strong> {cls_name.title()}'
             f'</div>'
         )
-    class_markup = "".join(class_pills) if class_pills else '<span style="font-size:12px; color:#6E8879;">Standard Vehicles</span>'
+    class_markup = "".join(class_pills) if class_pills else '<span style="font-size:12px; color:#7E8F82;">Standard Multi-Class Vehicles</span>'
 
     html = f"""
     <div style="margin-top: 10px;">
         <!-- Top Metrics Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 16px;">
             <!-- Total Counted -->
             <div class="metric-tile">
                 <div class="metric-tile-label">Line Crossings</div>
                 <div class="metric-tile-value">{total_counted}</div>
-                <div style="font-family:'Space Grotesk', sans-serif; font-size:11px; color:#57655A; margin-top:4px;">
-                    In: <strong style="color:#2D6A4F;">{in_count}</strong> | Out: <strong style="color:#B85D38;">{out_count}</strong>
+                <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:11px; color:#526356; margin-top:6px;">
+                    In: <strong style="color:#1F6B3B;">{in_count}</strong> &nbsp;·&nbsp; Out: <strong style="color:#B54222;">{out_count}</strong>
                 </div>
             </div>
 
             <!-- Unique Vehicles -->
             <div class="metric-tile">
-                <div class="metric-tile-label">Unique Targets</div>
+                <div class="metric-tile-label">Tracked Targets</div>
                 <div class="metric-tile-value">{unique_vehicles}</div>
-                <div style="font-family:'Space Grotesk', sans-serif; font-size:11px; color:#57655A; margin-top:4px;">
-                    Active Track IDs
+                <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:11px; color:#526356; margin-top:6px;">
+                    Persistent Object IDs
                 </div>
             </div>
 
@@ -95,34 +95,34 @@ def render_analytics_dashboard_html(data: Dict[str, Any]) -> str:
             <div class="metric-tile">
                 <div class="metric-tile-label">Mean Velocity</div>
                 <div class="metric-tile-value">{avg_spd}<span class="metric-tile-unit">km/h</span></div>
-                <div style="font-family:'Space Grotesk', sans-serif; font-size:11px; color:#57655A; margin-top:4px;">
-                    Peak: <strong style="color:#4A6B56;">{max_spd} km/h</strong>
+                <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:11px; color:#526356; margin-top:6px;">
+                    Peak: <strong style="color:#2E5339;">{max_spd} km/h</strong>
                 </div>
             </div>
 
             <!-- Congestion State -->
             <div class="metric-tile">
-                <div class="metric-tile-label">Density Status</div>
+                <div class="metric-tile-label">Flow Density</div>
                 <div style="margin-top: 6px;">{congestion_badge}</div>
-                <div style="font-family:'Space Grotesk', sans-serif; font-size:11px; color:#57655A; margin-top:8px;">
-                    Peak targets: {congestion.get('peak_density', 0)}
+                <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:11px; color:#526356; margin-top:8px;">
+                    Peak concurrency: {congestion.get('peak_density', 0)}
                 </div>
             </div>
 
             <!-- Processing Telemetry -->
             <div class="metric-tile">
-                <div class="metric-tile-label">Inference Speed</div>
+                <div class="metric-tile-label">Inference Engine</div>
                 <div class="metric-tile-value">{fps}<span class="metric-tile-unit">fps</span></div>
-                <div style="font-family:'Space Grotesk', sans-serif; font-size:11px; color:#57655A; margin-top:4px;">
+                <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:11px; color:#526356; margin-top:6px;">
                     {frames_proc} frames in {elapsed}s
                 </div>
             </div>
         </div>
 
         <!-- Vehicle Classification Strip -->
-        <div style="background: #FCFBF7; border: 1px solid #DFD7C7; border-radius: 10px; padding: 12px 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #4A6B56;">
-                ✦ Vehicle Distribution:
+        <div style="background: #FFFFFF; border: 1px solid #DCD4C4; border-radius: 12px; padding: 14px 18px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; box-shadow: 0 4px 14px -4px rgba(35, 55, 42, 0.05);">
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #2E5339;">
+                ✦ Detected Vehicle Classification:
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                 {class_markup}

@@ -84,6 +84,8 @@ def analyze_video():
     max_frames = data.get("max_frames")
     if max_frames is not None:
         max_frames = int(max_frames)
+        if max_frames <= 0:
+            max_frames = None
 
     job_id = str(uuid.uuid4())[:8]
     ANALYSIS_JOBS[job_id] = {"status": "processing", "progress": 0}
